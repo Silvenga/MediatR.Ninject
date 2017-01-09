@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<package>
+  <metadata>
+    <id>MediatR.Ninject</id>
+    <version>0.0.0.1</version>
+    <authors>Silvenga</authors>
+    <owners>Silvenga</owners>
+    <licenseUrl>https://github.com/Silvenga/MediatR.Ninject</licenseUrl>
+    <projectUrl>https://github.com/Silvenga/MediatR.Ninject/blob/master/LICENSE</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PNinject configuration helper for MediatR.</description>
+    <releaseNotes>Inital release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>MediatR Ninject</tags>
+  </metadata>
+</package>

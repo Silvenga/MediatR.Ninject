@@ -10,7 +10,7 @@ namespace MediatR.Ninject
         /// </summary>
         /// <param name="kernel"></param>
         /// <returns></returns>
-        public static IKernel BindMediatR(this IKernel kernel)
+        public static IKernel BindMediatR(this IKernel kernel) 
         {
             kernel.Load<MediatRModule>();
             return kernel;
