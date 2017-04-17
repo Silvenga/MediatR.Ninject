@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="ContravariantBindingResolver.cs" />
     <Compile Include="MediatRModule.cs" />
-    <Compile Include="NinjectKernelExtentions.cs" />
+    <Compile Include="NinjectKernelExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

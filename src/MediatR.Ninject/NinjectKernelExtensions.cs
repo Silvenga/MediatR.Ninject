@@ -2,7 +2,7 @@
 
 namespace MediatR.Ninject
 {
-    public static class NinjectKernelExtentions
+    public static class NinjectKernelExtensions
     {
         /// <summary>
         /// Loads the MediaR Ninject Module in the given kernel.
