@@ -19,7 +19,7 @@ namespace MediatR.Ninject
             Kernel?.Components.Add<IBindingResolver, ContravariantBindingResolver>();
 
             Kernel?.Bind<IMediator>().To<Mediator>();
-            Kernel?.Bind<SingleInstanceFactory>().ToMethod(ctx => t => ctx.Kernel.Get(t));
+            Kernel?.Bind<SingleInstanceFactory>().ToMethod(ctx => t => ctx.Kernel.TryGet(t));
             Kernel?.Bind<MultiInstanceFactory>().ToMethod(ctx => t => ctx.Kernel.GetAll(t));
         }
     }
