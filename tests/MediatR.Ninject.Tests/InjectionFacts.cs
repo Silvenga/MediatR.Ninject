@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,36 +7,28 @@ using FluentAssertions;
 
 using Ninject;
 
-using Ploeh.AutoFixture;
-
 using Xunit;
 
 namespace MediatR.Ninject.Tests
 {
-    public class FlowFacts
+    public class InjectionFacts
     {
-        private static readonly Fixture Autofixture = new Fixture();
-
-        private readonly IKernel _kernel;
-
-        public FlowFacts()
-        {
-            _kernel = new StandardKernel();
-            _kernel.BindMediatR();
-            _kernel.Bind<IRequestHandler<QueryFixture.Query, QueryFixture.Result>>().To<QueryFixtureHandler>();
-        }
-
         [Fact]
-        public async Task FlowWorks()
+        public void When_requesting_multiple_types_factory_does_not_return_null()
         {
-            var mediator = _kernel.Get<IMediator>();
-            var input = Autofixture.Create<QueryFixture.Query>();
+            var kernel = new StandardKernel();
+            kernel.BindMediatR();
+
+            kernel.Bind<IRequestHandler<QueryFixture.Query, QueryFixture.Result>>().To<QueryFixtureHandler>();
+
+            var factory = kernel.Get<ServiceFactory>();
 
             // Act
-            var result = await mediator.Send(input);
+            var result = (IEnumerable<IRequestHandler<QueryFixture.Query, QueryFixture.Result>>)
+                factory(typeof(IEnumerable<IRequestHandler<QueryFixture.Query, QueryFixture.Result>>));
 
             // Assert
-            result.Output.Should().Be(input.Input);
+            result.Should().NotBeNull();
         }
 
         public static class QueryFixture
@@ -55,7 +48,7 @@ namespace MediatR.Ninject.Tests
         {
             public Task<QueryFixture.Result> Handle(QueryFixture.Query message, CancellationToken cancellationToken)
             {
-                return Task.FromResult(new QueryFixture.Result {Output = message.Input});
+                return Task.FromResult(new QueryFixture.Result { Output = message.Input });
             }
         }
     }
