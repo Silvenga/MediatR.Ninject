@@ -1,20 +1,16 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-
 using FluentAssertions;
-
 using Ninject;
-
 using Ploeh.AutoFixture;
-
 using Xunit;
 
 namespace MediatR.Ninject.Tests
 {
     public class FlowFacts
     {
-        private static readonly Fixture Autofixture = new Fixture();
+        private static readonly Fixture AutoFixture = new Fixture();
 
         private readonly IKernel _kernel;
 
@@ -26,10 +22,10 @@ namespace MediatR.Ninject.Tests
         }
 
         [Fact]
-        public async Task FlowWorks()
+        public async Task Standard_flow_should_work()
         {
             var mediator = _kernel.Get<IMediator>();
-            var input = Autofixture.Create<QueryFixture.Query>();
+            var input = AutoFixture.Create<QueryFixture.Query>();
 
             // Act
             var result = await mediator.Send(input);

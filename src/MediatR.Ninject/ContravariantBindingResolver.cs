@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-
 using Ninject.Components;
 using Ninject.Infrastructure;
 using Ninject.Planning.Bindings;
@@ -10,7 +9,6 @@ using Ninject.Planning.Bindings.Resolvers;
 
 namespace MediatR.Ninject
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
     public class ContravariantBindingResolver : NinjectComponent, IBindingResolver
     {
         /// <summary>
@@ -24,8 +22,8 @@ namespace MediatR.Ninject
                 var genericArguments = genericType.GetGenericArguments();
                 var isContravariant = genericArguments.Length == 1
                                       && genericArguments
-                                          .Single()
-                                          .GenericParameterAttributes.HasFlag(GenericParameterAttributes.Contravariant);
+                                         .Single()
+                                         .GenericParameterAttributes.HasFlag(GenericParameterAttributes.Contravariant);
                 if (isContravariant)
                 {
                     var argument = service.GetGenericArguments().Single();

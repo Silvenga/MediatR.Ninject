@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-
 using FluentAssertions;
-
 using Ninject;
-
 using Xunit;
 
 namespace MediatR.Ninject.Tests
@@ -48,7 +45,7 @@ namespace MediatR.Ninject.Tests
         {
             public Task<QueryFixture.Result> Handle(QueryFixture.Query message, CancellationToken cancellationToken)
             {
-                return Task.FromResult(new QueryFixture.Result { Output = message.Input });
+                return Task.FromResult(new QueryFixture.Result {Output = message.Input});
             }
         }
     }
