@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="[6,7)" />
+    <PackageReference Include="MediatR" Version="[6,8)" />
     <PackageReference Include="Ninject" Version="3.3.1" />
   </ItemGroup>
 
