@@ -22,5 +22,5 @@ IKernel kernel = new StandardKernel();
 kernel.BindMediatR();
 
 // That's it! Make sure to bind the handlers as needed.
-kernel.Bind<ExampleRequestHandler>.To<IRequestHandler<,>>;
+kernel.Bind<IRequestHandler<,>>.To<ImplementationHandler>;
 ```
