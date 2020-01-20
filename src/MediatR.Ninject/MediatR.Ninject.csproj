@@ -7,7 +7,7 @@
     <PackageTags>MediatR;Ninject</PackageTags>
     <Description>Ninject configuration helper for MediatR.</Description>
     <PackageProjectUrl>https://github.com/Silvenga/MediatR.Ninject</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/Silvenga/MediatR.Ninject/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright 2019</Copyright>
   </PropertyGroup>
 
