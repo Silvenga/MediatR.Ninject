@@ -15,9 +15,8 @@ dotnet_csproj:
   file_version: '{version}'
   informational_version: '{version}'
 build_script:
-- ps: >-
-    dotnet build
-
-    dotnet pack
+- ps: dotnet build
+- ps: dotnet test
+- ps: dotnet pack
 artifacts:
 - path: '**/*.nupkg'
